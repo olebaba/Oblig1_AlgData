@@ -85,7 +85,18 @@ public class Oblig1 {
 
     ///// Oppgave 4 //////////////////////////////////////
     public static void delsortering(int[] a) {
-        throw new NotImplementedException();
+        //int antallOdde=0;
+//        for(int i:a){
+//            if(i%2!=0) antallOdde++;
+//        }
+//
+//        for (int i=0;i<a.length;i++){
+//            if(a[i]>)
+//        }
+
+
+
+
     }
 
     ///// Oppgave 5 //////////////////////////////////////
