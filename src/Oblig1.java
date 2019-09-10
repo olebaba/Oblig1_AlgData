@@ -40,7 +40,7 @@ public class Oblig1 {
         if (a.length>1){
             int tall =a[0];
             for(int i:a){
-                if (tall >i) throw new IllegalArgumentException( "ikke sortert");
+                if (tall >i) throw new IllegalStateException( "ikke sortert");
                 tall=i;
             }
 
@@ -64,7 +64,23 @@ public class Oblig1 {
 
     ///// Oppgave 3 //////////////////////////////////////
     public static int antallUlikeUsortert(int[] a) {
-        throw new NotImplementedException();
+        //anntall forskjellige verdier er lik antall verdier minus duplikanter
+        // når de forekommer i loopen
+        int ulikeverdier=a.length;
+
+        if(a.length>1) {
+            int aNull=a[0];
+            for (int i = 1; i < a.length; i++) {
+                for (int j = i; j < a.length; j++) {
+                    if (aNull == a[j]) {
+                        ulikeverdier--;
+                        break;
+                    }
+                }
+                aNull = a[i];
+            }
+        }
+        return ulikeverdier;
     }
 
     ///// Oppgave 4 //////////////////////////////////////
