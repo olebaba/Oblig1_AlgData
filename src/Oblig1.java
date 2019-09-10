@@ -11,38 +11,54 @@ public class Oblig1 {
     }
 
     ///// Oppgave 1 //////////////////////////////////////
-    /*
-    * Det blir flest ombyttinger når det største tallet er først
-    * Det blir færrest ombyttinger når det største tallet er til slutt
-     */
     public static int maks(int[] a) {
-        //throw new NotImplementedException();
+        throw new NotImplementedException();
 
-        if(a.length<1){
-            throw new NoSuchElementException("Tabellen finnes ikke!");
-        }
-
-        //int maks = a[0];
-        for(int i = 1; i<a.length; i++){
-            if(a[i-1]>a[i]){
-                int temp = a[i];
-                a[i] = a[i-1];
-                a[i-1] = temp;
-            }
-        }
-
-        return a[a.length-1];
+//        if(a.length<1){
+//            throw new NoSuchElementException("Tabellen finnes ikke!");
+//        }
+//
+//        int maks = a[0];
+//        for(int i = 1; i<a.length; i++){
+//            if(a[i]<maks){
+//                int temp = a[i];
+//                a[i] = maks;
+//                maks = temp;
+//            }
+//        }
+//
+//        return maks;
     }
 
     public static int ombyttinger(int[] a) {
         throw new NotImplementedException();
-
-
     }
 
     ///// Oppgave 2 //////////////////////////////////////
     public static int antallUlikeSortert(int[] a) {
-        throw new NotImplementedException();
+        int uliketall=0;
+        if (a.length>1){
+            int tall =a[0];
+            for(int i:a){
+                if (tall >i) throw new IllegalArgumentException( "ikke sortert");
+                tall=i;
+            }
+
+        }
+        if(a.length>=1){
+            //hvis rekker er lengre eller lik 1, har vi minst ett "ulikt" tall. dvs->
+            // uliketall starter på 1
+            uliketall++;
+            int temp_utall=a[0];
+            for(int i=1;i<a.length;i++){
+                if (temp_utall != a[i]) uliketall++;
+                temp_utall=a[i];
+            }
+
+
+        }
+
+        return uliketall;
     }
 
 
