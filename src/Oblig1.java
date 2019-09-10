@@ -85,14 +85,55 @@ public class Oblig1 {
 
     ///// Oppgave 4 //////////////////////////////////////
     public static void delsortering(int[] a) {
-        //int antallOdde=0;
-//        for(int i:a){
-//            if(i%2!=0) antallOdde++;
-//        }
-//
-//        for (int i=0;i<a.length;i++){
-//            if(a[i]>)
-//        }
+        int od=0;
+        for(int i:a){
+            if(i%2!=0) od++;
+
+        }
+        int t=a[0];
+        for(int i=0;i<od;i++){
+            if(a[i]%2==0){
+                t=a[i];
+                for(int j=i;j<a.length;j++){
+                    if(a[j]%2!=0){
+                        a[i]=a[j];
+                        a[j]=t;
+                        break;
+                    }
+                }
+            }
+        }
+
+
+        int svn=a[0];
+        int svi=0;
+        int vn=0;
+
+        for(int i=0;i<od-1;i++){
+            svn=a[i];
+            vn=a[i];
+            for(int j=i;j<od;j++){
+                if(svn>=a[j]){
+                    svn=a[j];
+                    svi=j;
+                }
+            }
+            a[svi]=vn;
+            a[i]= svn;
+        }
+        for(int i=od-1;i<a.length-1;i++){
+            svn=a[i];
+            vn=a[i];
+            for(int j=i;j<a.length;j++){
+                if(svn>=a[j]){
+                    svn=a[j];
+                    svi=j;
+                }
+            }
+            a[svi]=vn;
+            a[i]= svn;
+
+        }
 
 
 
