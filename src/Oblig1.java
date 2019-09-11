@@ -2,6 +2,7 @@
 
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
+import java.sql.SQLOutput;
 import java.util.Arrays;
 import java.util.NoSuchElementException;
 import java.util.Random;
@@ -188,8 +189,45 @@ public class Oblig1 {
 
     ///// Oppgave 6 //////////////////////////////////////
     public static void rotasjon(char[] a, int k) {
+        char[] b = new char[a.length];
 
+        //sjekker om det skal roteres mer enn en "runde" og endrer k slik at metoden fungerer
+        while(Math.abs(k) > a.length-1){
+            if(k<0){
+                k = a.length - Math.abs(k);
+            }else{
+                k = Math.abs(a.length - Math.abs(k));
+            }
 
+            //System.out.println(k);
+        }
+
+        //legger bokstavene i et nytt array på den roterte plassen
+        if(k>0){
+            for(int i = 0; i<a.length; i++){
+                if(i+k < a.length){
+                    b[i+k] = a[i];
+                    //System.out.println("1" + Arrays.toString(b));
+                }else{
+                    b[i-a.length+k] = a[i];
+                    //System.out.println("2" + Arrays.toString(b));
+                }
+            }
+        }else if(k<0){
+            for(int i = a.length-1; i>=0; i--){
+                if(i+k >= 0){
+                    b[i+k] = a[i];
+                    //System.out.println("1" + Arrays.toString(b));
+                }else{
+                    b[i+a.length+k] = a[i];
+                    //System.out.println("2" + Arrays.toString(b));
+                }
+            }
+        }else{ //om k=0
+            System.arraycopy(a, 0, b, 0, a.length); //kanskje unødvendig
+        }
+
+        System.arraycopy(b, 0, a, 0, a.length);
     }
 
     ///// Oppgave 7 //////////////////////////////////////
