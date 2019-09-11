@@ -18,20 +18,19 @@ public class Oblig1 {
      * I gjennomsnitt er det ? (trenger hjelp)
      */
     public static int maks(int[] a) {
-
-        if(a.length<1){
+        if (a.length < 1) {
             throw new NoSuchElementException("Tabellen finnes ikke!");
         }
 
-        for(int i = 1; i<a.length; i++){
-            if(a[i-1]>a[i]){
+        for (int i = 1; i < a.length; i++) {
+            if (a[i - 1] > a[i]) {
                 int temp = a[i];
-                a[i] = a[i-1];
-                a[i-1] = temp;
+                a[i] = a[i - 1];
+                a[i - 1] = temp;
             }
         }
 
-        return a[a.length-1];
+        return a[a.length - 1];
     }
 
     public static int ombyttinger(int[] a) {
@@ -179,12 +178,18 @@ public class Oblig1 {
 
     ///// Oppgave 5 //////////////////////////////////////
     public static void rotasjon(char[] a) {
-        throw new NotImplementedException();
+        char sist = a[a.length-1];
+
+        for(int i = a.length-2; i>=0; i--){
+            a[i+1] = a[i];
+        }
+        a[0] = sist;
     }
 
     ///// Oppgave 6 //////////////////////////////////////
     public static void rotasjon(char[] a, int k) {
-        throw new NotImplementedException();
+
+
     }
 
     ///// Oppgave 7 //////////////////////////////////////

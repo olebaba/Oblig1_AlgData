@@ -51,7 +51,10 @@ class Oblig1UnitTest {
 
     @org.junit.jupiter.api.Test
     void rotasjon() {
-        assertEquals(true, false, "Implementer rotasjon og denne testen");
+        char[] bokstaver = {'a','b','c','d'};
+        Oblig1.rotasjon(bokstaver);
+        System.out.println(Arrays.toString(bokstaver));
+        assertEquals('d', bokstaver[0], "Implementer rotasjon og denne testen");
     }
 
     @org.junit.jupiter.api.Test
