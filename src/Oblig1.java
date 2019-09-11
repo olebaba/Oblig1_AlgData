@@ -12,17 +12,15 @@ public class Oblig1 {
 
     ///// Oppgave 1 //////////////////////////////////////
     /*
-    * Det blir flest ombyttinger når det største tallet er først
-    * Det blir færrest ombyttinger når det største tallet er til slutt
+     * Det blir flest ombyttinger når det største tallet er først
+     * Det blir færrest ombyttinger når det største tallet er til slutt
      */
     public static int maks(int[] a) {
-        //throw new NotImplementedException();
 
         if(a.length<1){
             throw new NoSuchElementException("Tabellen finnes ikke!");
         }
 
-        //int maks = a[0];
         for(int i = 1; i<a.length; i++){
             if(a[i-1]>a[i]){
                 int temp = a[i];
@@ -36,24 +34,111 @@ public class Oblig1 {
 
     public static int ombyttinger(int[] a) {
         throw new NotImplementedException();
-
-
     }
 
     ///// Oppgave 2 //////////////////////////////////////
     public static int antallUlikeSortert(int[] a) {
-        throw new NotImplementedException();
+        int uliketall=0;
+        if (a.length>1){
+            int tall =a[0];
+            for(int i:a){
+                if (tall >i) throw new IllegalStateException( "ikke sortert");
+                tall=i;
+            }
+
+        }
+        if(a.length>=1){
+            //hvis rekker er lengre eller lik 1, har vi minst ett "ulikt" tall. dvs->
+            // uliketall starter på 1
+            uliketall++;
+            int temp_utall=a[0];
+            for(int i=1;i<a.length;i++){
+                if (temp_utall != a[i]) uliketall++;
+                temp_utall=a[i];
+            }
+
+
+        }
+
+        return uliketall;
     }
 
 
     ///// Oppgave 3 //////////////////////////////////////
     public static int antallUlikeUsortert(int[] a) {
-        throw new NotImplementedException();
+        //anntall forskjellige verdier er lik antall verdier minus duplikanter
+        // når de forekommer i loopen
+        int ulikeverdier=a.length;
+
+        if(a.length>1) {
+            int aNull=a[0];
+            for (int i = 1; i < a.length; i++) {
+                for (int j = i; j < a.length; j++) {
+                    if (aNull == a[j]) {
+                        ulikeverdier--;
+                        break;
+                    }
+                }
+                aNull = a[i];
+            }
+        }
+        return ulikeverdier;
     }
 
     ///// Oppgave 4 //////////////////////////////////////
     public static void delsortering(int[] a) {
-        throw new NotImplementedException();
+        int od=0;
+        for(int i:a){
+            if(i%2!=0) od++;
+        }
+        int t=a[0];
+        for(int i=0;i<od;i++){
+            if(a[i]%2==0){
+                t=a[i];
+                for(int j=i;j<a.length;j++){
+                    if(a[j]%2!=0){
+                        a[i]=a[j];
+                        a[j]=t;
+                        break;
+                    }
+                }
+            }
+        }
+
+
+        int svn=a[0];
+        int svi=0;
+        int vn=0;
+
+        for(int i=0;i<od-1;i++){
+            svn=a[i];
+            vn=a[i];
+            for(int j=i;j<od;j++){
+                if(svn>=a[j]){
+                    svn=a[j];
+                    svi=j;
+                }
+            }
+            a[svi]=vn;
+            a[i]= svn;
+        }
+        for(int i=od-1;i<a.length-1;i++){
+            svn=a[i];
+            vn=a[i];
+            for(int j=i;j<a.length;j++){
+                if(svn>=a[j]){
+                    svn=a[j];
+                    svi=j;
+                }
+            }
+            a[svi]=vn;
+            a[i]= svn;
+
+        }
+
+
+
+
     }
 
     ///// Oppgave 5 //////////////////////////////////////
