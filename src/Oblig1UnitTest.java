@@ -19,7 +19,15 @@ class Oblig1UnitTest {
 
     @org.junit.jupiter.api.Test
     void ombyttinger() {
-        assertEquals(true, false, "Implementer ombyttinger og denne testen");
+        int[] tabell = Oblig1.randPerm(1000);
+        int antall_tester = 1000;
+        int ombyttinger = 0;
+        for(int i= 0; i<antall_tester; i++){
+            ombyttinger += Oblig1.ombyttinger(tabell);
+        }
+        int gj_snitt = ombyttinger/antall_tester;
+        System.out.println(gj_snitt);
+        //assertEquals(true, false, "Implementer ombyttinger og denne testen");
     }
 
     @org.junit.jupiter.api.Test
