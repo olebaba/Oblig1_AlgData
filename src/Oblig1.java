@@ -88,7 +88,6 @@ public class Oblig1 {
         int od=0;
         for(int i:a){
             if(i%2!=0) od++;
-
         }
         int t=a[0];
         for(int i=0;i<od;i++){
