@@ -31,7 +31,6 @@ public class Oblig1 {
                 a[i - 1] = temp;
             }
         }
-
         return a[a.length - 1];
     }
 
@@ -47,29 +46,26 @@ public class Oblig1 {
                 antall++;
             }
         }
-
         return antall;
-
     }
 
     public static void bytt(int[] a, int i, int j){
         int temp = a[i]; a[i] = a[j]; a[j] = temp;
     }
 
-    public static int[] randPerm(int n)  // en effektiv versjon
+    public static int[] randPerm(int n)
     {
-        Random r = new Random();         // en randomgenerator
-        int[] a = new int[n];            // en tabell med plass til n tall
+        Random r = new Random();
+        int[] a = new int[n];
 
-        Arrays.setAll(a, i -> i + 1);    // legger inn tallene 1, 2, . , n
+        Arrays.setAll(a, i -> i + 1);
 
-        for (int k = n - 1; k > 0; k--)  // løkke som går n - 1 ganger
+        for (int k = n - 1; k > 0; k--)
         {
-            int i = r.nextInt(k+1);        // en tilfeldig tall fra 0 til k
-            bytt(a,k,i);                   // bytter om
+            int i = r.nextInt(k+1);
+            bytt(a,k,i);
         }
-
-        return a;                        // permutasjonen returneres
+        return a;
     }
 
 
@@ -238,7 +234,7 @@ public class Oblig1 {
         }
 
         //legger bokstavene i et nytt array på den roterte plassen
-        if(k>0){
+        if(k>0) {
             for(int i = 0; i<a.length; i++){
                 if(i+k < a.length){
                     b[i+k] = a[i];
@@ -259,7 +255,7 @@ public class Oblig1 {
                 }
             }
         }else{ //om k=0
-            System.arraycopy(a, 0, b, 0, a.length); //kanskje unødvendig
+            System.arraycopy(a, 0, b, 0, a.length); //kanskje unødvendig/tungvindt
         }
 
         System.arraycopy(b, 0, a, 0, a.length);
@@ -284,7 +280,57 @@ public class Oblig1 {
 
     ///// Oppgave 9 //////////////////////////////////////
     public static int[] tredjeMin(int[] a) {
-        throw new NotImplementedException();
+        //throw new NotImplementedException();
+        if(a.length<3){
+            throw new NoSuchElementException("Tabellen har færre enn 3 elementer.");
+        }
+
+        int m = 0;      // m er posisjonen til minste verdi
+        int nm = 1;     // nm er posisjonen til nest minste verdi
+        int tm = 2;     //tm er posisjonen til tredje minste verdi
+
+
+        if (a[2] < a[1]) {
+            if (a[2] < a[0]){
+                m = 2; nm = 1; tm = 0;
+            }else{
+
+            }
+        }
+        if (a[1] < a[0]) { m = 1; nm = 0; } // bytter om m og nm hvis a[1] er større enn a[0]
+
+        int minstverdi = a[m];                // minste verdi
+        int nestminstverdi = a[nm];           // nest minste verdi
+        int tredjeminstverdi = a[tm];         // tredje minste verdi
+
+        for (int i = 3; i < a.length; i++)
+        {
+            if(a[i] > tredjeminstverdi) {
+                if (a[i] > nestminstverdi) {
+                    if (a[i] > minstverdi) {
+                        tm = nm;
+                        tredjeminstverdi = nestminstverdi; // ny tredje størst
+
+                        nm = m;
+                        nestminstverdi = minstverdi;     // ny nest størst
+
+                        m = i;
+                        minstverdi = a[m];              // ny størst
+                    } else {
+                        tm = nm;
+                        tredjeminstverdi = nestminstverdi; // ny tredje størst
+
+                        nm = i;
+                        nestminstverdi = a[nm];         // ny nest størst
+                    }
+                }else{
+                    tm = i;
+                    tredjeminstverdi = a[tm];        // ny tredje størst
+                }
+            }
+        }
+
+        return new int[] {m,nm, tm};    // n i posisjon 0, nm i posisjon 1, tm i posisjon 2
     }
 
     ///// Oppgave 10 //////////////////////////////////////
