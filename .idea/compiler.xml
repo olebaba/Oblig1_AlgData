@@ -5,4 +5,6 @@
       <module name="Oblig1_AlgData" target="8" />
     </bytecodeTargetLevel>
   </component>
+  <component name="JavacSettings">
+  </component>
 </project>

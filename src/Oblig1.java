@@ -6,6 +6,7 @@ import java.sql.SQLOutput;
 import java.util.Arrays;
 import java.util.NoSuchElementException;
 import java.util.Random;
+import java.util.concurrent.TimeUnit;
 
 
 public class Oblig1 {
@@ -121,18 +122,52 @@ public class Oblig1 {
         return ulikeverdier;
     }
 
+
+
+
+    ////tileggsmetodter til oppgave 4(quicksort)//////
+    public static int partisjon(int a[],int low,int high){
+
+        int leftwall=low-1;
+        for(int i = low; i< high; i++) {
+            if (a[i] <= a[high]) {
+                leftwall++;
+                Oblig1.bytt(a,leftwall,i);
+            }
+
+        }
+        Oblig1.bytt(a,leftwall+1, high);
+        return leftwall+1;
+
+
+    }
+    public static void quickSort(int[] a,int low, int high){
+        if(low<high){
+            int midt= partisjon(a,low,high);
+
+            quickSort(a,low,midt-1);
+            quickSort(a,midt+1,high);
+        }
+
+    }
+
     ///// Oppgave 4 //////////////////////////////////////
-    public static void delsortering(int[] a) {
-        int od=0;
+    public static void delsortering(int[] a){
+        if (a.length==0) return;
+
+        int antallOddetall=0;
         for(int i:a){
-            if(i%2!=0) od++;
+            if(i%2!=0) antallOddetall++;
         }
         int t=a[0];
-        for(int i=0;i<od;i++){
+        int start=a.length-1;
+        for(int i=0;i<antallOddetall;i++){
             if(a[i]%2==0){
                 t=a[i];
-                for(int j=i;j<a.length;j++){
+                for(int j=start;j>=antallOddetall;j--){
                     if(a[j]%2!=0){
+                        start=j;
+
                         a[i]=a[j];
                         a[j]=t;
                         break;
@@ -140,9 +175,11 @@ public class Oblig1 {
                 }
             }
         }
+        quickSort(a,0,antallOddetall-1);
+        quickSort(a,antallOddetall,a.length-1);
 
 
-        int svn=a[0];
+        /*int svn=a[0];
         int svi=0;
         int vn=0;
 
@@ -158,22 +195,20 @@ public class Oblig1 {
             a[svi]=vn;
             a[i]= svn;
         }
-        for(int i=od-1;i<a.length-1;i++){
+        for(int i=od;i<a.length-1;i++){
             svn=a[i];
             vn=a[i];
             for(int j=i;j<a.length;j++){
                 if(svn>=a[j]){
                     svn=a[j];
                     svi=j;
+
                 }
             }
             a[svi]=vn;
             a[i]= svn;
 
-        }
-
-
-
+        }*/
 
     }
 
