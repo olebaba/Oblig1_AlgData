@@ -42,37 +42,17 @@ public class tester {
         return count;
     }
     public static void main(String[] args) {
-        int a[] = Oblig1.randPerm(100000);
-        long tid = System.currentTimeMillis();
-        /*int od=0;
-        for(int i:a){
-            if(i%2!=0) od++;
-        }
-        int t;
-        int start=a.length-1;
-        int hoo;
-        for(int i=0;i<od;i++){
-            hoo=start;
-            if(a[i]%2==0){
-                t=a[i];
-                for(int j=hoo;j>od;j--){
-                    if(a[j]%2!=0){
-                        hoo=start;
+        //long tid = System.currentTimeMillis();
+        //tid = System.currentTimeMillis() - tid;
+        //System.out.println(tid);
 
-                        a[i]=a[j];
-                        a[j]=t;
-                        break;
-                    }
-                }
-            }
-        }*/
-        int v=1;
-        while (!(v==0)){
-            v=par3(a,0,a.length-1);
+        //System.out.println(Arrays.toString(b));
+        /*ord2=ord2.substring(0,1)+ord2.substring(2);
+        System.out.println(ord2);*/
+        String a= "ABBA";
+        String b= "A";
+        String c="";
 
-        }
-        tid = System.currentTimeMillis() - tid;
-        System.out.println(tid);
 
     }
     public static void qqs(int[]a){
@@ -122,6 +102,7 @@ public class tester {
 
 
     }
+
     public static void qss2(int[] a,int low, int high){
         if(low<high){
             int midt= qss1(a,low,high);

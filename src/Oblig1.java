@@ -335,11 +335,37 @@ public class Oblig1 {
 
     ///// Oppgave 10 //////////////////////////////////////
     public static int bokstavNr(char bokstav) {
-        throw new NotImplementedException();
+
+        char[] al={'A','B','C','D','E','F','G','H','I',
+                'J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','Æ','Ø','Å'};
+        for(int i=0;i<al.length;i++){
+            if(al[i]==bokstav) return i;
+        }
+        return 31;
+    }
+
+    public static void mengde(char[] a,int[] b){
+        for (char c : a) {
+            b[bokstavNr(c)]+=1;
+        }
     }
 
     public static boolean inneholdt(String a, String b) {
-        throw new NotImplementedException();
+        char[] charA=a.toCharArray();
+        char[] charB=b.toCharArray();
+        int lengde=32;
+
+        int[] charAMengde = new int[lengde];
+        int[] charBMengde = new int[lengde];
+        mengde(charA,charAMengde);
+        mengde(charB,charBMengde);
+
+         for(int i=0;i<lengde-2;i++){
+             if(charBMengde[i]<charAMengde[i]){
+                 return false;
+             }
+         }
+         return true;
     }
 
 }  // Oblig1
