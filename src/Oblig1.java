@@ -223,6 +223,9 @@ public class Oblig1 {
 
     ///// Oppgave 6 //////////////////////////////////////
     public static void rotasjon(char[] a, int k) {
+        if (a.length < 1){
+            return;
+        }
         char[] b = new char[a.length];
 
         //sjekker om det skal roteres mer enn en "runde" og endrer k slik at metoden fungerer
@@ -277,7 +280,38 @@ public class Oblig1 {
 
     ///// Oppgave 8 //////////////////////////////////////
     public static int[] indekssortering(int[] a) {
-        throw new NotImplementedException();
+
+        int[] index = new int[a.length];
+
+        for (int i = 0; i < a.length; i++){
+            if(a[i] == a[min(a)]){
+                index[i] = i;
+            }
+        }
+
+
+        return index;
+    }
+
+    public static int min(int[] a, int fra, int til){
+        if(fra < 0 || til > a.length || fra >= til){
+            throw new IllegalArgumentException("feil intervall");
+        }
+
+        int m = fra;
+        int minverdi = a[fra];
+
+        for(int i = fra +1; i < til; i++){
+            if(a[i] < minverdi){
+                m = i;
+                minverdi = a[m];
+            }
+        }
+        return m;
+    }
+
+    public static int min(int[] a){
+        return min(a, 0, a.length);
     }
 
 
@@ -291,32 +325,10 @@ public class Oblig1 {
         int nm = 1;     // nm er posisjonen til nest minste verdi
         int tm = 2;     // tm er posisjonen til tredje minste verdi
 
+        //skal bestemme posisjon til minste, nest minste og tredje minste
 
-       for(int i = 0; i < 3; i++){
-           if(a[i] < a[tm]){
-               if(a[i] < a[nm]){
-                   m = i;
-               }else {
-                   nm = i;
-               }
-           }
-           //if()
-       }
 
-        /*
-        if (a[2] < a[1]) { // legger minste tallet først
-            if (a[2] < a[0]){
-                m = 2; nm = 1; tm = 0;
-            }else{
-                nm = 2; tm = 1;
-            }
-        }
-        if(a[2] < a[0]){
 
-        }
-        if (a[1] < a[0]) { m = 1; nm = 0; } // bytter om m og nm hvis a[1] er større enn a[0]
-
-         */
         int minstverdi = a[m];                // minste verdi
         int nestminstverdi = a[nm];           // nest minste verdi
         int tredjeminstverdi = a[tm];         // tredje minste verdi

@@ -385,6 +385,7 @@ public class Oblig1Test {
             antallFeil++;
         }
 
+
         char[] b = {'A'};
         char[] b0 = {'A'};
         Oblig1.rotasjon(b, 0);
