@@ -72,8 +72,8 @@ class Oblig1UnitTest {
 
     @org.junit.jupiter.api.Test
     void tredjeMin() {
-        int[] tabell = {1, 4, 6, 7, 3};
-        int[] foreventet = {0, 4, 1};
+        int[] tabell = {2, 3, 1, 4, 5, 6};
+        int[] foreventet = {2, 0, 1};
 
         assertEquals(Arrays.toString(foreventet), Arrays.toString(Oblig1.tredjeMin(tabell)), "Implementer tredjeMin og denne testen");
     }

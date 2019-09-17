@@ -210,6 +210,9 @@ public class Oblig1 {
 
     ///// Oppgave 5 //////////////////////////////////////
     public static void rotasjon(char[] a) {
+        if(a.length<1){
+            return;
+        }
         char sist = a[a.length-1];
 
         for(int i = a.length-2; i>=0; i--){
@@ -280,16 +283,27 @@ public class Oblig1 {
 
     ///// Oppgave 9 //////////////////////////////////////
     public static int[] tredjeMin(int[] a) {
-        //throw new NotImplementedException();
         if(a.length<3){
             throw new NoSuchElementException("Tabellen har færre enn 3 elementer.");
         }
 
         int m = 0;      // m er posisjonen til minste verdi
         int nm = 1;     // nm er posisjonen til nest minste verdi
-        int tm = 2;     //tm er posisjonen til tredje minste verdi
+        int tm = 2;     // tm er posisjonen til tredje minste verdi
 
 
+       for(int i = 0; i < 3; i++){
+           if(a[i] < a[tm]){
+               if(a[i] < a[nm]){
+                   m = i;
+               }else {
+                   nm = i;
+               }
+           }
+           //if()
+       }
+
+        /*
         if (a[2] < a[1]) { // legger minste tallet først
             if (a[2] < a[0]){
                 m = 2; nm = 1; tm = 0;
@@ -297,8 +311,12 @@ public class Oblig1 {
                 nm = 2; tm = 1;
             }
         }
+        if(a[2] < a[0]){
+
+        }
         if (a[1] < a[0]) { m = 1; nm = 0; } // bytter om m og nm hvis a[1] er større enn a[0]
 
+         */
         int minstverdi = a[m];                // minste verdi
         int nestminstverdi = a[nm];           // nest minste verdi
         int tredjeminstverdi = a[tm];         // tredje minste verdi
@@ -330,7 +348,7 @@ public class Oblig1 {
             }
         }
 
-        return new int[] {m,nm, tm};    // n i posisjon 0, nm i posisjon 1, tm i posisjon 2
+        return new int[] {m, nm, tm};    // n i posisjon 0, nm i posisjon 1, tm i posisjon 2
     }
 
     ///// Oppgave 10 //////////////////////////////////////
