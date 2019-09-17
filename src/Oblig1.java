@@ -290,11 +290,11 @@ public class Oblig1 {
         int tm = 2;     //tm er posisjonen til tredje minste verdi
 
 
-        if (a[2] < a[1]) {
+        if (a[2] < a[1]) { // legger minste tallet først
             if (a[2] < a[0]){
                 m = 2; nm = 1; tm = 0;
             }else{
-
+                nm = 2; tm = 1;
             }
         }
         if (a[1] < a[0]) { m = 1; nm = 0; } // bytter om m og nm hvis a[1] er større enn a[0]
@@ -305,9 +305,9 @@ public class Oblig1 {
 
         for (int i = 3; i < a.length; i++)
         {
-            if(a[i] > tredjeminstverdi) {
-                if (a[i] > nestminstverdi) {
-                    if (a[i] > minstverdi) {
+            if(a[i] < tredjeminstverdi) {
+                if (a[i] < nestminstverdi) {
+                    if (a[i] < minstverdi) {
                         tm = nm;
                         tredjeminstverdi = nestminstverdi; // ny tredje størst
 

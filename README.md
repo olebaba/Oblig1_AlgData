@@ -1,4 +1,6 @@
 # Oblig1_AlgData
-Ole Bastian Løchen s333758
+Ole Bastian Løchen - S333758
 
-Daniel Woldegiorgis s305207
+Daniel Woldegiorgis - S305207
+
+Thomas Horn - S326288
