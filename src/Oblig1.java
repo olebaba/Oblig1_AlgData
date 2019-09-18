@@ -5,6 +5,7 @@ import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 import java.sql.SQLOutput;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
+import java.util.function.Function;
 
 
 public class Oblig1 {
@@ -13,10 +14,31 @@ public class Oblig1 {
 
     ///// Oppgave 1 //////////////////////////////////////
     /*
-     * Det blir flest ombyttinger når n blir stort
-     * Det blir færrest ombyttinger når n=1
-     * I gjennomsnitt er det ? (trenger hjelp)
+     * Det blir flest ombyttinger når n blir stort, når tabellen er sortert fra sinkende til størst
+     * , da blir antall ombyttinger lik n (tabellstørelse)
+     * Det blir færrest ombyttinger når n=1, når tabellen
+     * gjennomsnitt for en tabell på 100n blir 87
+     *
      */
+    public static void gjennomsnitt(){
+        Function<Integer,int []> tabell= (size)->{
+            Random r= new Random();
+            int[] arr= new int[size];
+            for(int i=0;i<arr.length;i++){
+                arr[i]=r.nextInt(10);
+            }
+            return arr;
+        };
+        double bytter=0;
+        int str=100;
+        int gjennomkj=10000;
+        for(int i=0;i<gjennomkj;i++){
+            int[] arr= tabell.apply(str);
+            bytter+=Oblig1.ombyttinger(arr);
+
+        }
+        System.out.println(bytter/gjennomkj);
+    }
     public static int maks(int[] a) {
         if (a.length < 1) {
             throw new NoSuchElementException("Tabellen finnes ikke!");
@@ -45,6 +67,8 @@ public class Oblig1 {
             }
         }
         return antall;
+
+
     }
 
     public static void bytt(int[] a, int i, int j){
@@ -172,38 +196,6 @@ public class Oblig1 {
         quickSort(a,0,antallOddetall-1);
         quickSort(a,antallOddetall,a.length-1);
 
-
-        /*int svn=a[0];
-        int svi=0;
-        int vn=0;
-
-        for(int i=0;i<od-1;i++){
-            svn=a[i];
-            vn=a[i];
-            for(int j=i;j<od;j++){
-                if(svn>=a[j]){
-                    svn=a[j];
-                    svi=j;
-                }
-            }
-            a[svi]=vn;
-            a[i]= svn;
-        }
-        for(int i=od;i<a.length-1;i++){
-            svn=a[i];
-            vn=a[i];
-            for(int j=i;j<a.length;j++){
-                if(svn>=a[j]){
-                    svn=a[j];
-                    svi=j;
-
-                }
-            }
-            a[svi]=vn;
-            a[i]= svn;
-
-        }*/
-
     }
 
     ///// Oppgave 5 //////////////////////////////////////
@@ -268,7 +260,18 @@ public class Oblig1 {
     ///// Oppgave 7 //////////////////////////////////////
     /// 7a)
     public static String flett(String s, String t) {
-        throw new NotImplementedException();
+
+        int l = Math.min(s.length(), t.length());  // lengden på den korteste  
+        StringBuilder n = new StringBuilder(); //StringBuilder klasse i loop for oppbygging av tegnstreng
+
+        for (int i = 0; i < l; i++)
+        {
+          n.append(s.charAt(i)).append(t.charAt(i));
+        }
+
+        n.append(s.substring(l)).append(t.substring(l)); //Legger til resten
+
+       return n.toString();
     }
 
     /// 7b)
