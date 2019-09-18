@@ -41,7 +41,6 @@ public class Oblig1 {
         for(int i=0;i<gjennomkj;i++){
             int[] arr= tabell.apply(str);
             bytter+=Oblig1.ombyttinger(arr);
-
         }
         System.out.println(bytter/gjennomkj);
     }
@@ -73,8 +72,6 @@ public class Oblig1 {
             }
         }
         return antall;
-
-
     }
 
     public static void bytt(int[] a, int i, int j){
@@ -96,7 +93,6 @@ public class Oblig1 {
         return a;
     }
 
-
     ///// Oppgave 2 //////////////////////////////////////
     public static int antallUlikeSortert(int[] a) {
         int uliketall=0;
@@ -117,10 +113,7 @@ public class Oblig1 {
                 if (temp_utall != a[i]) uliketall++;
                 temp_utall=a[i];
             }
-
-
         }
-
         return uliketall;
     }
 
@@ -145,9 +138,6 @@ public class Oblig1 {
         }
         return ulikeverdier;
     }
-
-
-
 
     ////tileggsmetodter til oppgave 4(quicksort)//////
     public static int partisjon(int a[],int low,int high){
