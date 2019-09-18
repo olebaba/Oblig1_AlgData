@@ -12,7 +12,7 @@ public class Oblig1 {
     private Oblig1() {
     }
 
-    ///// Oppgave 1 //////////////////////////////////////
+    ///// Oppgave 1 /////////////////////////////////////
     /*
      * Det blir flest ombyttinger når n blir stort, når tabellen er sortert fra sinkende til størst
      * , da blir antall ombyttinger lik n (tabellstørelse)
