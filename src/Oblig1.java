@@ -3,9 +3,7 @@
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.sql.SQLOutput;
-import java.util.Arrays;
-import java.util.NoSuchElementException;
-import java.util.Random;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 
@@ -275,43 +273,79 @@ public class Oblig1 {
 
     /// 7b)
     public static String flett(String... s) {
-        throw new NotImplementedException();
-    }
+        //throw new NotImplementedException();
+
+        String[] tegnstrenger = new String[s.length];
+        StringBuilder sb = new StringBuilder();
+
+        int kar_nr = 0;
+
+        while (kar_nr < 8){
+            for (String value : s) {
+                //System.out.println(s[j].charAt(kar_nr));
+                if (value.length() > kar_nr) {
+                    sb.append(value.charAt(kar_nr));
+                }
+            }
+            kar_nr++;
+        }
+
+        return sb.toString();
+
+
+
+            /*for (int i = 0; i < s.length; i++){
+                if(s[j].length() > kar_nr){
+                    sb.append(s[j].charAt(kar_nr));
+                }
+            }*/
+            //kar_nr++;
+        }
+
 
     ///// Oppgave 8 //////////////////////////////////////
     public static int[] indekssortering(int[] a) {
 
+        ArrayList <Integer> b = new ArrayList<>();
+        for (int i : a) {
+            b.add(i);
+        }
+        System.out.println(b.size());
+
         int[] index = new int[a.length];
 
         for (int i = 0; i < a.length; i++){
-            if(a[i] == a[min(a)]){
-                index[i] = i;
+            for (int j = 0; j < index.length; j++){
+                if(a[i] == a[min((b))] && a[i] != index[j]){
+                    index[i] = i;
+                    b.remove(i);
+                    System.out.println(Arrays.toString(index));
+
+                }
             }
         }
-
-
         return index;
     }
 
-    public static int min(int[] a, int fra, int til){
-        if(fra < 0 || til > a.length || fra >= til){
+    public static int min(ArrayList a, int fra, int til){
+        /*if(fra < 0 || til > a.size() || fra >= til){
             throw new IllegalArgumentException("feil intervall");
-        }
+        }*/
 
         int m = fra;
-        int minverdi = a[fra];
+        int minverdi = a.indexOf(fra);
 
         for(int i = fra +1; i < til; i++){
-            if(a[i] < minverdi){
+            if(a.indexOf(i) < minverdi){
                 m = i;
-                minverdi = a[m];
+                minverdi = a.indexOf(i);
             }
         }
         return m;
     }
 
-    public static int min(int[] a){
-        return min(a, 0, a.length);
+    public static int min(ArrayList a){
+        return min(a, 0, a.size());
     }
 
 

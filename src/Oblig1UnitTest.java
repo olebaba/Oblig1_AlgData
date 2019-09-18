@@ -62,13 +62,18 @@ class Oblig1UnitTest {
 
     @org.junit.jupiter.api.Test
     void flett() {
-        assertEquals(true, false, "Implementer flett og denne testen");
+
+        String a = Oblig1.flett("AM ", "L", "GEDS" , "ORATKRR", "", "R TRTE", "IO", "TGAUU");
+        System.out.println(a);
+   // Utskrift: ALGORITMER OG DATASTRUKTURER Oppgave
+        assertEquals("ALGORITMER OG DATASTRUKTURER", a, "Implementer flett og denne testen");
     }
 
     @org.junit.jupiter.api.Test
     void indekssortering() {
         int[] tabell = {1, 2, 3, 4, 5};
         int[] forventet = {0, 1, 2, 3, 4};
+        //System.out.println(tabell[Oblig1.min(tabell)]);
         assertEquals(Arrays.toString(forventet), Arrays.toString(Oblig1.indekssortering(tabell)), "Implementer indekssortering og denne testen");
     }
 
