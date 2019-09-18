@@ -67,13 +67,15 @@ class Oblig1UnitTest {
 
     @org.junit.jupiter.api.Test
     void indekssortering() {
-        assertEquals(true, false, "Implementer indekssortering og denne testen");
+        int[] tabell = {1, 2, 3, 4, 5};
+        int[] forventet = {0, 1, 2, 3, 4};
+        assertEquals(Arrays.toString(forventet), Arrays.toString(Oblig1.indekssortering(tabell)), "Implementer indekssortering og denne testen");
     }
 
     @org.junit.jupiter.api.Test
     void tredjeMin() {
-        int[] tabell = {1, 4, 6, 7, 3};
-        int[] foreventet = {0, 4, 1};
+        int[] tabell = {3, 1, 2};
+        int[] foreventet = {1, 2, 0};
 
         assertEquals(Arrays.toString(foreventet), Arrays.toString(Oblig1.tredjeMin(tabell)), "Implementer tredjeMin og denne testen");
     }

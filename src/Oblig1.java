@@ -234,6 +234,9 @@ public class Oblig1 {
 
     ///// Oppgave 5 //////////////////////////////////////
     public static void rotasjon(char[] a) {
+        if(a.length<1){
+            return;
+        }
         char sist = a[a.length-1];
 
         for(int i = a.length-2; i>=0; i--){
@@ -244,6 +247,9 @@ public class Oblig1 {
 
     ///// Oppgave 6 //////////////////////////////////////
     public static void rotasjon(char[] a, int k) {
+        if (a.length < 1){
+            return;
+        }
         char[] b = new char[a.length];
 
         //sjekker om det skal roteres mer enn en "runde" og endrer k slik at metoden fungerer
@@ -288,7 +294,18 @@ public class Oblig1 {
     ///// Oppgave 7 //////////////////////////////////////
     /// 7a)
     public static String flett(String s, String t) {
-        throw new NotImplementedException();
+
+        int l = Math.min(s.length(), t.length());  // lengden på den korteste  
+        StringBuilder n = new StringBuilder(); //StringBuilder klasse i loop for oppbygging av tegnstreng
+
+        for (int i = 0; i < l; i++)
+        {
+          n.append(s.charAt(i)).append(t.charAt(i));
+        }
+
+        n.append(s.substring(l)).append(t.substring(l)); //Legger til resten
+
+       return n.toString();
     }
 
     /// 7b)
@@ -298,30 +315,54 @@ public class Oblig1 {
 
     ///// Oppgave 8 //////////////////////////////////////
     public static int[] indekssortering(int[] a) {
-        throw new NotImplementedException();
+
+        int[] index = new int[a.length];
+
+        for (int i = 0; i < a.length; i++){
+            if(a[i] == a[min(a)]){
+                index[i] = i;
+            }
+        }
+
+
+        return index;
+    }
+
+    public static int min(int[] a, int fra, int til){
+        if(fra < 0 || til > a.length || fra >= til){
+            throw new IllegalArgumentException("feil intervall");
+        }
+
+        int m = fra;
+        int minverdi = a[fra];
+
+        for(int i = fra +1; i < til; i++){
+            if(a[i] < minverdi){
+                m = i;
+                minverdi = a[m];
+            }
+        }
+        return m;
+    }
+
+    public static int min(int[] a){
+        return min(a, 0, a.length);
     }
 
 
     ///// Oppgave 9 //////////////////////////////////////
     public static int[] tredjeMin(int[] a) {
-        //throw new NotImplementedException();
         if(a.length<3){
             throw new NoSuchElementException("Tabellen har færre enn 3 elementer.");
         }
 
         int m = 0;      // m er posisjonen til minste verdi
         int nm = 1;     // nm er posisjonen til nest minste verdi
-        int tm = 2;     //tm er posisjonen til tredje minste verdi
+        int tm = 2;     // tm er posisjonen til tredje minste verdi
+
+        //skal bestemme posisjon til minste, nest minste og tredje minste
 
 
-        if (a[2] < a[1]) {
-            if (a[2] < a[0]){
-                m = 2; nm = 1; tm = 0;
-            }else{
-
-            }
-        }
-        if (a[1] < a[0]) { m = 1; nm = 0; } // bytter om m og nm hvis a[1] er større enn a[0]
 
         int minstverdi = a[m];                // minste verdi
         int nestminstverdi = a[nm];           // nest minste verdi
@@ -329,9 +370,9 @@ public class Oblig1 {
 
         for (int i = 3; i < a.length; i++)
         {
-            if(a[i] > tredjeminstverdi) {
-                if (a[i] > nestminstverdi) {
-                    if (a[i] > minstverdi) {
+            if(a[i] < tredjeminstverdi) {
+                if (a[i] < nestminstverdi) {
+                    if (a[i] < minstverdi) {
                         tm = nm;
                         tredjeminstverdi = nestminstverdi; // ny tredje størst
 
@@ -354,7 +395,7 @@ public class Oblig1 {
             }
         }
 
-        return new int[] {m,nm, tm};    // n i posisjon 0, nm i posisjon 1, tm i posisjon 2
+        return new int[] {m, nm, tm};    // n i posisjon 0, nm i posisjon 1, tm i posisjon 2
     }
 
     ///// Oppgave 10 //////////////////////////////////////

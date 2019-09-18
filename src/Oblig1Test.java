@@ -385,6 +385,7 @@ public class Oblig1Test {
             antallFeil++;
         }
 
+
         char[] b = {'A'};
         char[] b0 = {'A'};
         Oblig1.rotasjon(b, 0);
@@ -780,6 +781,8 @@ public class Oblig1Test {
 
             if (a[m] != 1 || a[nm] != 2 || a[tm] != 3) {
                 System.out.println("Oppgave 9: f) Feil for " + Arrays.toString(a));
+                System.out.println(Arrays.toString(a));
+                System.out.println(Arrays.toString(c));
                 antallFeil++;
                 break;
             }
