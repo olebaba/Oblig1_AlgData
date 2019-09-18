@@ -305,26 +305,22 @@ public class Oblig1 {
 
     ///// Oppgave 8 //////////////////////////////////////
     public static int[] indekssortering(int[] a) {
+        int[] svar=new int[a.length];
+        int[] aSortert=a.clone();
+        Oblig1.quickSort(aSortert,0,a.length-1);
 
-        ArrayList <Integer> b = new ArrayList<>();
-        for (int i : a) {
-            b.add(i);
-        }
-        System.out.println(b.size());
+        int index=0;
+        for(int i=0;i<a.length;i++){
 
-        int[] index = new int[a.length];
-
-        for (int i = 0; i < a.length; i++){
-            for (int j = 0; j < index.length; j++){
-                if(a[i] == a[min((b))] && a[i] != index[j]){
-                    index[i] = i;
-                    b.remove(i);
-                    System.out.println(Arrays.toString(index));
-
-                }
+            for(int j=0;j<a.length;j++){
+                if(aSortert[i]==a[j]) index=j;
             }
+
+            svar[i]=index;
+
         }
-        return index;
+
+        return svar;
     }
 
     public static int min(ArrayList a, int fra, int til){
