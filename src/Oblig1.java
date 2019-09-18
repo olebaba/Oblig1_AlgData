@@ -6,11 +6,10 @@ Thomas Horn - S326288
 
 ////// Løsningsforslag Oblig 1 - 2019 ////////////////////////
 
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
-import java.sql.SQLOutput;
+
+
 import java.util.*;
-import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
 
 
@@ -20,9 +19,9 @@ public class Oblig1 {
 
     ///// Oppgave 1 /////////////////////////////////////
     /*
-     * Det blir flest ombyttinger når n blir stort, når tabellen er sortert fra sinkende til størst
-     * , da blir antall ombyttinger lik n (tabellstørelse)
-     * Det blir færrest ombyttinger når n=1, når tabellen
+     * Det blir flest ombyttinger naar n blir stort, naar tabellen er sortert fra sinkende til storst
+     * , da blir antall ombyttinger lik n (tabellstorelse)
+     * Det blir forrest ombyttinger naar n=1, naar tabellen
      * gjennomsnitt for en tabell på 100n blir 87
      *
      */
@@ -128,7 +127,7 @@ public class Oblig1 {
     ///// Oppgave 3 //////////////////////////////////////
     public static int antallUlikeUsortert(int[] a) {
         //anntall forskjellige verdier er lik antall verdier minus duplikanter
-        // når de forekommer i loopen
+        // naar de forekommer i loopen
         int ulikeverdier=a.length;
 
         if(a.length>1) {
@@ -231,6 +230,8 @@ public class Oblig1 {
             }else{
                 k = Math.abs(a.length - Math.abs(k));
             }
+
+            //System.out.println(k);
         }
 
         //legger bokstavene i et nytt array på den roterte plassen
@@ -251,7 +252,7 @@ public class Oblig1 {
                 }
             }
         }else{ //om k=0
-            System.arraycopy(a, 0, b, 0, a.length); //kanskje unødvendig/tungvindt
+            System.arraycopy(a, 0, b, 0, a.length); //kanskje unodvendig/tungvindt
         }
 
         System.arraycopy(b, 0, a, 0, a.length);
@@ -276,7 +277,6 @@ public class Oblig1 {
 
     /// 7b)
     public static String flett(String... s) {
-        //throw new NotImplementedException();
         int max=0;
         for(String i:s){
             if(i.length()>max){
@@ -322,6 +322,24 @@ public class Oblig1 {
         return svar;
     }
 
+    public static int min(ArrayList a, int fra, int til){
+
+        int m = fra;
+        int minverdi = a.indexOf(fra);
+
+        for(int i = fra +1; i < til; i++){
+            if(a.indexOf(i) < minverdi){
+                m = i;
+                minverdi = a.indexOf(i);
+            }
+        }
+        return m;
+    }
+
+    public static int min(ArrayList a){
+        return min(a, 0, a.size());
+    }
+
 
     ///// Oppgave 9 //////////////////////////////////////
     public static int[] tredjeMin(int[] a) {
@@ -335,14 +353,7 @@ public class Oblig1 {
 
         //skal bestemme posisjon til minste, nest minste og tredje minste
 
-        int[] b = new int[3];
-        for (int i = 0; i<b.length; i++){
-            b[i] = a[i];
-        }
 
-        int[] c = indekssortering(b);
-        //System.out.println(Arrays.toString(c));
-        m = c[0]; nm = c[1]; tm = c[2];
 
         int minstverdi = a[m];                // minste verdi
         int nestminstverdi = a[nm];           // nest minste verdi
@@ -354,23 +365,23 @@ public class Oblig1 {
                 if (a[i] < nestminstverdi) {
                     if (a[i] < minstverdi) {
                         tm = nm;
-                        tredjeminstverdi = nestminstverdi; // ny tredje størst
+                        tredjeminstverdi = nestminstverdi; // ny tredje storst
 
                         nm = m;
-                        nestminstverdi = minstverdi;     // ny nest størst
+                        nestminstverdi = minstverdi;     // ny nest storst
 
                         m = i;
-                        minstverdi = a[m];              // ny størst
+                        minstverdi = a[m];              // ny storst
                     } else {
                         tm = nm;
-                        tredjeminstverdi = nestminstverdi; // ny tredje størst
+                        tredjeminstverdi = nestminstverdi; // ny tredje storst
 
                         nm = i;
-                        nestminstverdi = a[nm];         // ny nest størst
+                        nestminstverdi = a[nm];         // ny nest storst
                     }
                 }else{
                     tm = i;
-                    tredjeminstverdi = a[tm];        // ny tredje størst
+                    tredjeminstverdi = a[tm];        // ny tredje storst
                 }
             }
         }
@@ -398,7 +409,7 @@ public class Oblig1 {
     public static boolean inneholdt(String a, String b) {
         char[] charA=a.toCharArray();
         char[] charB=b.toCharArray();
-        int lengde=32;
+        int lengde=32; //antall bokestaver ++ ekstra til tegn som ikke skal vaere med
 
         int[] charAMengde = new int[lengde];
         int[] charBMengde = new int[lengde];
@@ -413,4 +424,4 @@ public class Oblig1 {
          return true;
     }
 
-}  // Oblig1
+}  
