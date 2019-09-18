@@ -267,7 +267,7 @@ public class Oblig1 {
 
         for (int i = 0; i < l; i++)
         {
-          n.append(s.charAt(i)).append(t.charAt(i));
+          n.append(s.charAt(i)).append(t.charAt(i)); //Legger til hver verdi i StringBuilder
         }
 
         n.append(s.substring(l)).append(t.substring(l)); //Legger til resten
