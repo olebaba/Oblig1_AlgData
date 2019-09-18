@@ -353,7 +353,15 @@ public class Oblig1 {
 
         //skal bestemme posisjon til minste, nest minste og tredje minste
 
+        //hjelpetabell
+        int[] b = new int[3];
+        for (int i = 0; i<b.length; i++){
+            b[i] = a[i];
+        }
 
+        //skal bestemme posisjon til minste, nest minste og tredje minste
+        int[] c = indekssortering(b);
+        m = c[0]; nm = c[1]; tm = c[2];
 
         int minstverdi = a[m];                // minste verdi
         int nestminstverdi = a[nm];           // nest minste verdi
