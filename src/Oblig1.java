@@ -198,38 +198,6 @@ public class Oblig1 {
         quickSort(a,0,antallOddetall-1);
         quickSort(a,antallOddetall,a.length-1);
 
-
-        /*int svn=a[0];
-        int svi=0;
-        int vn=0;
-
-        for(int i=0;i<od-1;i++){
-            svn=a[i];
-            vn=a[i];
-            for(int j=i;j<od;j++){
-                if(svn>=a[j]){
-                    svn=a[j];
-                    svi=j;
-                }
-            }
-            a[svi]=vn;
-            a[i]= svn;
-        }
-        for(int i=od;i<a.length-1;i++){
-            svn=a[i];
-            vn=a[i];
-            for(int j=i;j<a.length;j++){
-                if(svn>=a[j]){
-                    svn=a[j];
-                    svi=j;
-
-                }
-            }
-            a[svi]=vn;
-            a[i]= svn;
-
-        }*/
-
     }
 
     ///// Oppgave 5 //////////////////////////////////////
