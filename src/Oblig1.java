@@ -277,13 +277,19 @@ public class Oblig1 {
     /// 7b)
     public static String flett(String... s) {
         //throw new NotImplementedException();
+        int max=0;
+        for(String i:s){
+            if(i.length()>max){
+                max=i.length();
+            }
+        }
 
         String[] tegnstrenger = new String[s.length];
         StringBuilder sb = new StringBuilder();
 
         int kar_nr = 0;
 
-        while (kar_nr < 8){
+        while (kar_nr < max){
             for (String value : s) {
                 //System.out.println(s[j].charAt(kar_nr));
                 if (value.length() > kar_nr) {
@@ -294,15 +300,6 @@ public class Oblig1 {
         }
 
         return sb.toString();
-
-
-
-            /*for (int i = 0; i < s.length; i++){
-                if(s[j].length() > kar_nr){
-                    sb.append(s[j].charAt(kar_nr));
-                }
-            }*/
-            //kar_nr++;
         }
 
 
