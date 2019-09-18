@@ -231,8 +231,6 @@ public class Oblig1 {
             }else{
                 k = Math.abs(a.length - Math.abs(k));
             }
-
-            //System.out.println(k);
         }
 
         //legger bokstavene i et nytt array på den roterte plassen
@@ -240,20 +238,16 @@ public class Oblig1 {
             for(int i = 0; i<a.length; i++){
                 if(i+k < a.length){
                     b[i+k] = a[i];
-                    //System.out.println("1" + Arrays.toString(b));
                 }else{
                     b[i-a.length+k] = a[i];
-                    //System.out.println("2" + Arrays.toString(b));
                 }
             }
         }else if(k<0){
             for(int i = a.length-1; i>=0; i--){
                 if(i+k >= 0){
                     b[i+k] = a[i];
-                    //System.out.println("1" + Arrays.toString(b));
                 }else{
                     b[i+a.length+k] = a[i];
-                    //System.out.println("2" + Arrays.toString(b));
                 }
             }
         }else{ //om k=0
@@ -297,7 +291,6 @@ public class Oblig1 {
 
         while (kar_nr < max){
             for (String value : s) {
-                //System.out.println(s[j].charAt(kar_nr));
                 if (value.length() > kar_nr) {
                     sb.append(value.charAt(kar_nr));
                 }
@@ -329,27 +322,6 @@ public class Oblig1 {
         return svar;
     }
 
-    public static int min(ArrayList a, int fra, int til){
-        /*if(fra < 0 || til > a.size() || fra >= til){
-            throw new IllegalArgumentException("feil intervall");
-        }*/
-
-        int m = fra;
-        int minverdi = a.indexOf(fra);
-
-        for(int i = fra +1; i < til; i++){
-            if(a.indexOf(i) < minverdi){
-                m = i;
-                minverdi = a.indexOf(i);
-            }
-        }
-        return m;
-    }
-
-    public static int min(ArrayList a){
-        return min(a, 0, a.size());
-    }
-
 
     ///// Oppgave 9 //////////////////////////////////////
     public static int[] tredjeMin(int[] a) {
@@ -363,7 +335,14 @@ public class Oblig1 {
 
         //skal bestemme posisjon til minste, nest minste og tredje minste
 
+        int[] b = new int[3];
+        for (int i = 0; i<b.length; i++){
+            b[i] = a[i];
+        }
 
+        int[] c = indekssortering(b);
+        //System.out.println(Arrays.toString(c));
+        m = c[0]; nm = c[1]; tm = c[2];
 
         int minstverdi = a[m];                // minste verdi
         int nestminstverdi = a[nm];           // nest minste verdi
