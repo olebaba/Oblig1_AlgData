@@ -1,3 +1,9 @@
+/*
+Ole Bastian Løchen - S333758
+Daniel Woldegiorgis - S305207
+Thomas Horn - S326288
+*/
+
 ////// Løsningsforslag Oblig 1 - 2019 ////////////////////////
 
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
