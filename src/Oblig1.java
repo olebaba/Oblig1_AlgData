@@ -283,12 +283,9 @@ public class Oblig1 {
                 max=i.length();
             }
         }
-
-        String[] tegnstrenger = new String[s.length];
         StringBuilder sb = new StringBuilder();
 
         int kar_nr = 0;
-
         while (kar_nr < max){
             for (String value : s) {
                 if (value.length() > kar_nr) {
@@ -297,9 +294,8 @@ public class Oblig1 {
             }
             kar_nr++;
         }
-
         return sb.toString();
-        }
+    }
 
 
     ///// Oppgave 8 //////////////////////////////////////
@@ -316,9 +312,7 @@ public class Oblig1 {
             }
 
             svar[i]=index;
-
         }
-
         return svar;
     }
 
@@ -333,15 +327,14 @@ public class Oblig1 {
         int nm = 1;     // nm er posisjonen til nest minste verdi
         int tm = 2;     // tm er posisjonen til tredje minste verdi
 
-        //skal bestemme posisjon til minste, nest minste og tredje minste
-
+        //hjelpetabell
         int[] b = new int[3];
         for (int i = 0; i<b.length; i++){
             b[i] = a[i];
         }
 
+        //skal bestemme posisjon til minste, nest minste og tredje minste
         int[] c = indekssortering(b);
-        //System.out.println(Arrays.toString(c));
         m = c[0]; nm = c[1]; tm = c[2];
 
         int minstverdi = a[m];                // minste verdi
