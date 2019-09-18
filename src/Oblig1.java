@@ -270,7 +270,18 @@ public class Oblig1 {
     ///// Oppgave 7 //////////////////////////////////////
     /// 7a)
     public static String flett(String s, String t) {
-        throw new NotImplementedException();
+
+        int l = Math.min(s.length(), t.length());  // lengden på den korteste  
+        StringBuilder n = new StringBuilder(); //StringBuilder klasse i loop for oppbygging av tegnstreng
+
+        for (int i = 0; i < l; i++)
+        {
+          n.append(s.charAt(i)).append(t.charAt(i));
+        }
+
+        n.append(s.substring(l)).append(t.substring(l)); //Legger til resten
+
+       return n.toString();
     }
 
     /// 7b)
