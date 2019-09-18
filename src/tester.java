@@ -1,5 +1,7 @@
 import javax.swing.plaf.IconUIResource;
 import java.util.Arrays;
+import java.util.Random;
+import java.util.function.Function;
 
 public class tester {
     public static void ds(int a[],int h,int l){
@@ -49,68 +51,42 @@ public class tester {
         //System.out.println(Arrays.toString(b));
         /*ord2=ord2.substring(0,1)+ord2.substring(2);
         System.out.println(ord2);*/
-        String a= "ABBA";
+        /*String a= "ABBA";
         String b= "A";
         String c="";
+        double ob=0;
+        for(int i=0;i<10000;i++){
+            int[] arr=randomT(100);
+            ob+=Oblig1.ombyttinger(arr);
 
-
-    }
-    public static void qqs(int[]a){
-        boolean uferdig=true;
-        int low=0;
-        int high=a.length-1;
-        int midt=(low+high)/2;
-        int byttv;
-        int bytth=0;
-        while (uferdig){
-            //System.out.println("a"+" "+midt);
-            Oblig1.bytt(a,midt,high);
-            for(int i=low; i<midt;i++){
-                if(a[i]>a[midt]){
-                    byttv=i;
-                    for (int j=high-1;j>=midt+1;j--){
-                        if(a[j]<a[midt]){
-                            bytth=j;
-                            break;
-                        }
-                    }
-                    Oblig1.bytt(a,byttv,bytth);
-
-                }
-            }
-            Oblig1.bytt(a,high,midt);
-            high=midt;
-            midt=(low+high)/2;
-            if(high==low){
-                uferdig=false;
-            }
 
         }
-    }
-    public static int qss1(int a[],int low,int high){
+        System.out.println(ob/10000);
+        System.out.println(snitt(1000));
+        System.out.println(Math.log(1000)
+        );*?
 
-        int left=low-1;
-        for(int i = low; i< high; i++) {
-            if (a[i] <= a[high]) {
-                left++;
-                Oblig1.bytt(a,left,i);
-            }
-            System.out.println(Arrays.toString(a));
-        }
-        Oblig1.bytt(a,left+1, high);
-        return left+1;
+         */
 
 
     }
 
-    public static void qss2(int[] a,int low, int high){
-        if(low<high){
-            int midt= qss1(a,low,high);
+    public static int[] randomT(int size){
+        Random r= new Random();
+        int[] arr= new int[size];
+        for(int i=0;i<arr.length;i++){
+            arr[i]=r.nextInt(10);
+        }
+        return arr;
+    }
+    public static double snitt(int length){
+        double sum =0;
+        for (int i=1;i<length;i++){
+            sum+=(Math.log(i)+ 0.577);
 
-            qss2(a,low,midt-1);
-            qss2(a,midt+1,high);
         }
 
+        return sum;
     }
 
 }

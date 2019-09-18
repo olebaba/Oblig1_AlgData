@@ -7,6 +7,7 @@ import java.util.Arrays;
 import java.util.NoSuchElementException;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
+import java.util.function.Function;
 
 
 public class Oblig1 {
@@ -15,10 +16,31 @@ public class Oblig1 {
 
     ///// Oppgave 1 //////////////////////////////////////
     /*
-     * Det blir flest ombyttinger når n blir stort
-     * Det blir færrest ombyttinger når n=1
-     * I gjennomsnitt er det ? (trenger hjelp)
+     * Det blir flest ombyttinger når n blir stort, når tabellen er sortert fra sinkende til størst
+     * , da blir antall ombyttinger lik n (tabellstørelse)
+     * Det blir færrest ombyttinger når n=1, når tabellen
+     * gjennomsnitt for en tabell på 100n blir 87
+     *
      */
+    public static void gjennomsnitt(){
+        Function<Integer,int []> tabell= (size)->{
+            Random r= new Random();
+            int[] arr= new int[size];
+            for(int i=0;i<arr.length;i++){
+                arr[i]=r.nextInt(10);
+            }
+            return arr;
+        };
+        double bytter=0;
+        int str=100;
+        int gjennomkj=10000;
+        for(int i=0;i<gjennomkj;i++){
+            int[] arr= tabell.apply(str);
+            bytter+=Oblig1.ombyttinger(arr);
+
+        }
+        System.out.println(bytter/gjennomkj);
+    }
     public static int maks(int[] a) {
         if (a.length < 1) {
             throw new NoSuchElementException("Tabellen finnes ikke!");
@@ -47,6 +69,8 @@ public class Oblig1 {
             }
         }
         return antall;
+
+
     }
 
     public static void bytt(int[] a, int i, int j){
